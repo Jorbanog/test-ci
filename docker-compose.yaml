@@ -1,6 +1,15 @@
 version: '3.9'
 
 services:
+  app: 
+    build: 
+      dockerfile: test.Dockerfile
+    restart: always
+    container_name: "ppm-test-node"
+    ports: 
+      - "7070:3000"
+    depends_on: 
+      - db
   db:
     image: postgres:14
     restart: always
