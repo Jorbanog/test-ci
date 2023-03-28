@@ -17,5 +17,11 @@ pipeline {
                     sh 'docker-compose down'
                 }
         }
+
+        stage('Kek') {
+            steps {
+                sh 'node --version'
+            }
+        }
     }
 }
