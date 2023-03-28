@@ -9,7 +9,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'node --version'
-                sh 'docker compose --version'
+                sh 'docker compose version'
                 sh 'npm ci'
                 sh 'npm run test'
             }
