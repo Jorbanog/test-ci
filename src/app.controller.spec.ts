@@ -15,7 +15,7 @@ describe('AppController', () => {
           type: 'postgres',
           host: 'ppm-test-postgresql-postgres',
           port: 5432,
-          username: 'georgijzazulin',
+          username: 'user',
           password: 'user',
           database: 'postgres',
           entities: [User],
