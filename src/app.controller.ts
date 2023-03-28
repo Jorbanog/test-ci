@@ -9,4 +9,14 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('create')
+  async create() {
+    return this.appService.create();
+  }
+
+  @Get('findall')
+  async find() {
+    return this.appService.getAll();
+  }
 }
