@@ -40,7 +40,7 @@ describe('AppController', () => {
 
   describe('test', () => {
     it('should be testtt', async () => {
-      const user = await appController.create();
+      await appController.create();
     });
     it('kek', async () => {
       await appController.create();
