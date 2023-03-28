@@ -9,6 +9,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'node --version'
+                sh 'npm cache clean'
                 sh 'npm i'
                 sh 'npm run test'
             }
