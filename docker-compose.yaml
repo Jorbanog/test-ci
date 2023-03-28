@@ -6,6 +6,8 @@ services:
       dockerfile: test.Dockerfile
     restart: always
     container_name: "ppm-test-node"
+    post-up: 
+      "npm run test"
     ports: 
       - "7070:3000"
     depends_on: 
