@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:14
+    restart: always
+    container_name: "ppm-test-postgresql-postgres"
+    ports:
+      - '5432:5432'
+
+    environment:
+      POSTGRES_USER: georgijzazulin
+      POSTGRES_PASSWORD: user
+      POSTGRES_DB: postgres
