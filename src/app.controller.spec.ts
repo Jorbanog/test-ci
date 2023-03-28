@@ -13,7 +13,7 @@ describe('AppController', () => {
       imports: [
         TypeOrmModule.forRoot({
           type: 'postgres',
-          host: 'localhost',
+          host: 'ppm-test-postgresql-postgres',
           port: 5432,
           username: 'georgijzazulin',
           password: 'user',
