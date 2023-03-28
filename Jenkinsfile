@@ -13,10 +13,8 @@ pipeline {
         stage('Unit test') {
                 steps {
                     sh 'docker-compose down'
-                }
-
-                steps {
                     echo 'daaaa'
+
                 }
         }
     }
