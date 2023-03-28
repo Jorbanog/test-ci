@@ -4,7 +4,7 @@ services:
   docker-compose:
     image: docker/compose
     ports: 
-      - "5000:5000"
+      - "59488:5000"
   app: 
     build: 
       dockerfile: test.Dockerfile
