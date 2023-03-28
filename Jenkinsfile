@@ -1,8 +1,7 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Test') {
-            agent any
             steps {
                 sh 'docker -v'
                 sh 'docker-compose version'
