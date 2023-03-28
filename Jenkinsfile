@@ -6,7 +6,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'node --version'
-                sh 'npm -v'
+                sh 'npm ci'
                 sh 'npm run test'
             }
         }
