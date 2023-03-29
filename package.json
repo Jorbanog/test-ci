@@ -13,13 +13,13 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "jest",
+    "test": "npm-run-all run-tests run-after-tests --continue-on-error",
+    "run-tests": "docker-compose up --always-recreate-deps --abort-on-container-exit --exit-code-from node_test",
+    "run-after-tests": "docker-compose down",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
-    "pretest": "docker-compose up -d && echo 'Waiting for PG to start...' && sleep 5 ",
-    "posttest": "docker-compose down"
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -27,6 +27,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/typeorm": "^9.0.1",
     "mysql2": "^3.2.0",
+    "npm-run-all": "^4.1.5",
     "pg": "^8.10.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",

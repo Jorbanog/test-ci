@@ -1,23 +1,31 @@
-version: '3.9'
-
 services:
-  app: 
-    build:
-      dockerfile: test.Dockerfile
-    restart: no
-    container_name: "ppm-test-node"
-    ports: 
-      - "7070:3000"
-    depends_on: 
-      - db
-  db:
-    image: postgres:14
-    restart: always
-    container_name: "ppm-test-postgresql-postgres"
-    ports:
-      - '5432:5432'
-
+  postgres_test:
+    image: postgres:alpine
+    env_file:
+      - './.env.test'
     environment:
-      POSTGRES_USER: georgijzazulin
-      POSTGRES_PASSWORD: user
-      POSTGRES_DB: postgres
+      POSTGRES_USER: 'test-ppm-requests'
+      POSTGRES_PASSWORD: '1234'
+      POSTGRES_DB: 'test-ppm-requests'
+    ports:
+      - 5432:5432
+    networks:
+      - test-network
+    restart: 'no'
+
+  node_test:
+    depends_on: [postgres_test]
+    build:
+      context: .
+      dockerfile: test.Dockerfile
+      network: host
+    networks:
+      - test-network
+    restart: 'no'
+    command: sh ./tests.sh
+    links:
+      - postgres_test
+
+networks:
+  test-network:
+    driver: bridge

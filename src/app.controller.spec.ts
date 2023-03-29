@@ -13,11 +13,11 @@ describe('AppController', () => {
       imports: [
         TypeOrmModule.forRoot({
           type: 'postgres',
-          host: 'localhost',
+          host: 'postgres_test',
           port: 5432,
-          username: 'georgijzazulin',
-          password: 'user',
-          database: 'postgres',
+          username: 'test-ppm-requests',
+          password: '1234',
+          database: 'test-ppm-requests',
           entities: [User],
           synchronize: true,
         }),
@@ -45,6 +45,7 @@ describe('AppController', () => {
     it('kek', async () => {
       await appController.create();
       const users = await appController.find();
+      console.log(users.length);
       expect(users.length).toBeGreaterThan(3);
     });
   });

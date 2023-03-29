@@ -6,6 +6,7 @@ WORKDIR .
 
 # Bundle app source
 COPY . .
-
+RUN npm ci
+RUN chmod +x ./tests.sh
 # Start the server using the production build
-CMD [ "npm", "install" ]
+CMD ["npm", "ci"]

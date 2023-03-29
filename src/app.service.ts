@@ -23,4 +23,8 @@ export class AppService {
     });
     return this.userRep.save(user);
   }
+
+  async delete() {
+    await this.userRep.delete({ isActive: true });
+  }
 }
