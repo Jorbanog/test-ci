@@ -4,7 +4,7 @@ node {
     stage('unit') {
         try {
             sh 'docker-compose up'
-        }catch {
+        }finally {
             sh 'docker-compose down'
         }
     }
