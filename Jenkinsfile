@@ -2,10 +2,12 @@ pipeline {
     agent any
     stages {
         stage('Test') {
+            try {
+                sh 'docker-compose up'
+            } finally {
+                    sh "docker-compose down"
+            }
             steps {
-                sh 'node --version'
-                sh 'docker -v'
-                sh 'npm i'
                 sh 'docker-compose version'
             }
         }
