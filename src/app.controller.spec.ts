@@ -46,7 +46,7 @@ describe('AppController', () => {
       await appController.create();
       const users = await appController.find();
       console.log(users.length);
-      expect(users.length).toBeGreaterThan(3);
+      expect(users.length).toBeGreaterThan(5);
     });
   });
 });
