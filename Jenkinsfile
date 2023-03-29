@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Test') {
             try {
+                sh 'docker-compose version'
+
                 sh 'docker-compose up'
+                
             } finally {
                     sh "docker-compose down"
-            }
-            steps {
-                sh 'docker-compose version'
             }
         }
 
