@@ -24,6 +24,7 @@ services:
     volumes:
       - ./src:/src
     restart: 'no'
+    command: sh ./tests.sh
 
 networks:
   test-network:
