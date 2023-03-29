@@ -21,6 +21,8 @@ services:
       network: host
     networks:
       - test-network
+    volumes:
+      - ./src:./src
     restart: 'no'
     command: sh ./tests.sh
     links:
