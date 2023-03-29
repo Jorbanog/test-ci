@@ -1,13 +1,10 @@
 node {
-    stage ('Test') {
-        try {
-            sh 'docker-compose version'
-            sh 'docker-compose up'
-        } finally {
-            sh "docker-compose down"
+    checkout scm
+
+    docker.image('postgres:alpine') {
+        docker.image('node:16.13.1-alpine').inside {
+            sh 'node -v'
         }
     }
-    stage('kek') {
-        sh 'kek'
-    }
+    
 }
