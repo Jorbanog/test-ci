@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'node --version'
                 sh 'docker -v'
+                sh 'npm i'
                 sh 'docker-compose version'
                 sh 'npm run test'
             }
