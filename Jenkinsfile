@@ -3,8 +3,6 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                PrintStage()
-
                 sh 'node --version'
                 sh 'docker -v'
                 sh 'docker-compose version'
