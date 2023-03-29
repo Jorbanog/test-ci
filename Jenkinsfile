@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    stages {
         stage('Test') {
             try {
                 sh 'docker-compose version'
@@ -18,4 +17,3 @@ pipeline {
                 }
         }
     }
-}
