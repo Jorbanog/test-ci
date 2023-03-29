@@ -7,6 +7,7 @@ pipeline {
                 sh 'docker -v'
                 sh 'docker-compose version'
                 sh 'docker-compose up'
+                PrintStage()
             }
         }
 
