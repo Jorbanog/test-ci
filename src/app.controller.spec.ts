@@ -45,7 +45,7 @@ describe('AppController', () => {
     it('kek', async () => {
       await appController.create();
       const users = await appController.find();
-      expect(users.length).toBeGreaterThan(0);
+      expect(users.length).toBeGreaterThan(3);
     });
   });
 });
