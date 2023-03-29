@@ -1,16 +1,11 @@
 version: '3.9'
 
 services:
-  docker-compose:
-    image: docker/compose
-    ports: 
-      - "59488:5000"
   app: 
-    build: 
+    build:
       dockerfile: test.Dockerfile
-    restart: always
+    restart: no
     container_name: "ppm-test-node"
-    command: npm run test
     ports: 
       - "7070:3000"
     depends_on: 

@@ -6,15 +6,13 @@ pipeline {
                 sh 'node --version'
                 sh 'docker -v'
                 sh 'docker-compose version'
-                sh 'docker-compose up'
+                sh 'npm run test'
             }
         }
 
         stage('Unit test') {
                 steps {
-                    sh 'docker-compose down'
                     echo 'daaaa'
-
                 }
         }
     }
