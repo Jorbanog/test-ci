@@ -7,4 +7,7 @@ node {
             sh "docker-compose down"
         }
     }
+    stage('kek') {
+        sh 'kek'
+    }
 }
