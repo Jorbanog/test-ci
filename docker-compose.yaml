@@ -4,17 +4,19 @@ services:
     env_file:
       - './.env.test'
     environment:
-      POSTGRES_USER: 'test-ppm-requests'
-      POSTGRES_PASSWORD: '1234'
-      POSTGRES_DB: 'test-ppm-requests'
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
-      - 5432:5432
+      - ${DB_PORT}:5432
     networks:
       - test-network
     restart: 'no'
 
   node_test:
     depends_on: [postgres_test]
+    env_file:
+      - './.env.test'
     build:
       context: .
       dockerfile: test.Dockerfile
