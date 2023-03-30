@@ -16,7 +16,6 @@ services:
   node_test:
     depends_on: [postgres_test]
     build:
-      image: node_test:latest
       context: .
       dockerfile: test.Dockerfile
       network: host
