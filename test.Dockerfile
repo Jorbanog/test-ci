@@ -1,4 +1,4 @@
-FROM node_test:latest
+FROM node:16.15.1-alpine
 
 WORKDIR .
 
@@ -6,6 +6,9 @@ WORKDIR .
 
 # Bundle app source
 COPY . .
+RUN apk update && apk add netcat-openbsd bash
 RUN chmod +x ./tests.sh
+RUN npm ci
+RUN npm run build
 # Start the server using the production build
-CMD ["sh", "./tests.sh"]
+CMD ["/bin/bash", "./tests.sh"]
